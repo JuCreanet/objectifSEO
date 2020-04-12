@@ -1,0 +1,161 @@
+<!DOCTYPE html><!-- On indique que le document est en html5 -->
+<!---
+Copyright 2020 ObjectifSEO. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS-IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limi-->
+<html lang=fr><!-- On spécifie la langue -->
+<head>
+	
+	<meta charset="UTF-8"><!-- on spécifie l'encodage -->
+	<!-- on contrôle la taille et l'échelle de la fenêtre -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- on spécifie l'url canonique pour éviter le duplicate content -->
+	<link rel="canonical" href="https://objectifseo.fr/modele-template-html-seo.html">
+	<!-- les favicons -->
+	<link rel="shortcut icon" type="image/png" href="images/favicon.png">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<!-- le titre de la page, environ 70 caractères-->
+    <title>Modèle de structure HTML pour le SEO (bonus: code source à télécharger)</title>
+	<!-- la description de la page, entre 50 et 160 caractères-->
+   	<meta name="description" content="Un exemple concret d’une page HTML structurée et balisée pour le SEO technique avec son code source commenté à télécharger.">
+	<!-- les instructions pour les robots-->
+	<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="stylesheet" href="css/style.css">
+	<!-- les open graph pour facebook -->
+	<meta property="og:locale" content="fr_FR">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Modèle de structure HTML5 pour le SEO (bonus: code source à télécharger)">
+	<meta property="og:description" content="Un exemple concret d’une page HTML5 structurée et balisée pour le SEO technique avec son code source commenté à télécharger.">
+	<meta property="og:url" content="https://objectifseo.fr/template-html-seo.html">
+	<meta property="og:site_name" content="seopratique">
+	<meta property="og:updated_time" content="2020-04-10T17:35:18+00:00">
+	<meta property="og:image" content="https://objectifseo.fr/images/template-html-seo.png">
+	<meta property="og:image:secure_url" content="https://objectifseo.fr/images/template-html-seo.png">
+	<meta property="og:image:type" content="images/png">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="628">
+	<meta property="og:image:alt" content="Infographie structure d'une page html5">
+	<meta property="article:author" content="https://www.facebook.com/objectifSEO">
+	<meta property="article:section" content="SEO">
+	<meta property="article:published_time" content="2020-04-10T17:35:18+00:00">
+	<meta property="article:modified_time" content="2020-04-10T17:35:18+00:00">
+	<!-- les twitter cards -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:description" content="Un exemple concret d’une page HTML5 structurée et balisée pour le SEO technique avec son code source commenté à télécharger.">
+	<meta name="twitter:title" content="Modèle de structure HTML5 pour le SEO (bonus: code source à télécharger)">
+	<meta name="twitter:site" content="@ObjectifSEO">
+	<meta name="twitter:image" content="https://objectifseo.fr/images/template-html-seo.png">
+	<meta name="twitter:creator" content="@ObjectifSEO">
+	<!-- Schema org -->
+	<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://objectifseo.fr/#website","url":"https://objectifseo.fr","name":"Seopratique","inLanguage":"fr-FR","about":"SEO"},{"@type":"WebPage","@id":"https://objectifseo.fr/template-html-seo.html#webpage","url":"https://objectifseo.fr/template-html-seo.html","name":"Modèle de structure HTML5 pour le SEO (bonus: code source à télécharger)","isPartOf":{"@id":"https://objectifseo.fr/#website"},"inLanguage":"fr-FR","datePublished":"2020-04-10T17:35:18+00:00","dateModified":"2020-04-10T17:35:18+00:00","author":{"@type": "Person","name": "Julia Galindo"},"description":"Un exemple concret d’une page HTML5 structurée et balisée pour le SEO technique avec son code source commenté à télécharger.","potentialAction":[{"@type":"ReadAction","target":["https://objectifseo.fr/template-html-seo.html"]}]}]}</script>
+	<script>
+		var zone=1;
+		var head = document.getElementsByTagName('head')[0];
+		function couleur(){
+			if (zone==0){
+				var lien_css = document.createElement('link');
+				lien_css.href = "css/demo.css";
+				lien_css.rel = "stylesheet";
+				lien_css.type = "text/css";
+				lien_css.id = "zone";
+				console.log(lien_css);
+				head.appendChild(lien_css);
+				zone=1;
+			}else{
+				var lien_css=document.getElementById("zone");
+				console.log(lien_css);
+				lien_css.parentNode.removeChild( lien_css );
+				zone=0;
+			}
+	}
+	</script>
+    <link rel="stylesheet" id ="zone" href="css/demo.css">
+</head>
+<body>
+	<header class="fixed flex justify-center items-center"><!-- l'en-tête -->
+		<div id="logo"><a href="https://objectifseo.fr"><img src="images/logo.png" width="62" height="62" alt="logo ObjectifSEO"></a></div><p>Header : infos du site qui doivent apparaitre sur toutes les pages et qui permettent de savoir chez qui l'on est</p>
+	</header>
+	<nav class="mnav"><!-- votre menu -->
+		<ul class="list-reset flex justify-around items-center flex-wrap">
+			<li>Menu :</li>
+			<li><a href="#logo">L'en-tête</a></li>
+			<li><a href="#chapo">Le contenu</a></li>
+			<li><a href="#copyright">Le footer</a></li>
+			<li><a href="https://objectifseo.fr">Le blog</a></li>
+		</ul>
+	</nav>
+	<main class="flex flex-wrap">
+		<article><!-- le contenu -->
+			<div id="chapo"><!-- l'id sert d'ancre pour le lien de menu -->
+			<p>Je peux maintenant commencer à écrire le contenu spécifique à cette page en commençant par son titre de niveau 1 :
+	</p>
+			<!-- 1 seul h1 et h1 = meta title -->
+			<h1>Modèle de structure HTML pour le SEO (bonus: code source à télécharger)</h1>
+            <img src="images/template-html-seo.png" width="1200" height="628" alt="template d'une structure HTML5 optimisée pour le SEO">
+				<p>Je fais une petite introduction, ça s’appelle un chapo :</p>
+				<p>Vous vous demandez ce que vous faites sur cette page ?</p>
+				<p>C'est juste un exemple concret d’<strong>une page HTML structurée et balisée pour le SEO technique</strong>.</p>
+				<p>C'est justement ce que vous cherchiez ?</p> 
+				<p>Super ! En plus, vous pouvez télécharger son code source commenté. Ça vous sera utile pour auditer vos propres pages ou en créer des nouvelles.</p>
+			</div>
+				<p>Commençons par une nouvelle section.</p>
+			<section id='section'><!-- Les sections ne sont pas indispensables --> 
+				<h2>Les sections permettent de structurer un article long</h2><!-- pas de h2 sans h1 -->
+				<p>Mais avant d'arriver jusqu'ici, votre navigateur et les robots ont rencontré de nombreuses balises. Vous ne verrez jamais leur contenu sur votre page. Mais elles ne sont pas inaccessibles, il suffit de consulter le code source (⌘+U /Ctrl+U).</p>
+				<p>Profitez d’être dans le code source de votre page pour vérifier que toutes vos images ont un attribut <code>alt</code> et qu'il est pertinent !</p>
+			</section>
+			<p class="big">Je ne me sers pas d'un hn ou d'une balise de structure pour la mise en page !</p><!-- Utilisez une class pour attribuer un style -->
+			<h2>Les autres balises sémantiques</h2>
+			<p>Elles permettent d’indiquer la structure logique de la page</p><!-- on essaye de mettre du texte entre les titres -->
+			<h3>Titre de niveau 3: <code>main</code> et <code>article</code></h3><!-- pas de h3 sans h2 -->
+			<p>C’est ce contenu qui intéresse le plus Google. C'est ici qu'il va venir chercher de quoi répondre à une requête</p>
+			<p>Je mets donc en avant mes <em>mots clés</em> comme <strong>structure HTML5</strong> et <strong>SEO Technique</strong></p>
+			<h3>Titre de niveau 3 : <code>footer</code></h3>
+			<p>Comme l’en-tête, il contient des informations que l’on retrouvera sur tout votre site, mais elles seront secondaires comme le copyright, les informations légales, etc.</p>				
+			<hr>
+		</article>
+		<aside>
+			<h2>Aside</h2>
+			<p>Quand une balise aside est dans la balise article, son contenu est en rapport direct avec celui-ci. Comme par exemple :</p>
+			<p class="center"><a href="template-html-seo.zip">Téléchargez le code source commenté de cette page</a></p>
+			<p>Quand une balise aside est hors de la balise article, son contenu est plus lié au reste du site. Vous pouvez y mettre vos publicités, un menu secondaire, le dicton du jour…</p>
+			<p class="center"><button onclick="couleur()">Couleurs ON/OFF</button>
+		</aside>
+	</main>
+	<footer class="flex justify-around items-center flex-wrap">
+		<div id="copyright">© ObjectifSEO, 2020</div>
+		<nav>
+			<ul class="list-reset flex justify-around items-center flex-wrap">
+				<li><a href="https://objectifseo.fr/template-html-seo.amp.html">version AMP</a></li>
+				<li><a href="https://objectifseo.fr">blog</a></li>
+			</ul>
+		</nav>
+		<div id="reseau">
+			<ul class="social-follow list-reset flex justify-around items-center flex-wrap">
+			    <li>
+			        <a href="https://twitter.com/ObjectifSeo" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="22.2" viewBox="0 0 53 49"><title>Twitter</title><path d="M45 6.9c-1.6 1-3.3 1.6-5.2 2-1.5-1.6-3.6-2.6-5.9-2.6-4.5 0-8.2 3.7-8.2 8.3 0 .6.1 1.3.2 1.9-6.8-.4-12.8-3.7-16.8-8.7C8.4 9 8 10.5 8 12c0 2.8 1.4 5.4 3.6 6.9-1.3-.1-2.6-.5-3.7-1.1v.1c0 4 2.8 7.4 6.6 8.1-.7.2-1.5.3-2.2.3-.5 0-1 0-1.5-.1 1 3.3 4 5.7 7.6 5.7-2.8 2.2-6.3 3.6-10.2 3.6-.6 0-1.3-.1-1.9-.1 3.6 2.3 7.9 3.7 12.5 3.7 15.1 0 23.3-12.6 23.3-23.6 0-.3 0-.7-.1-1 1.6-1.2 3-2.7 4.1-4.3-1.4.6-3 1.1-4.7 1.3 1.7-1 3-2.7 3.6-4.6" class="icon icon-twitter"></path></svg></a>
+			    </li>
+			    <li>
+			        <a href="https://www.facebook.com/objectifSEO" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="23.6" viewBox="0 0 56 55"><title>Facebook</title><path d="M47.5 43c0 1.2-.9 2.1-2.1 2.1h-10V30h5.1l.8-5.9h-5.9v-3.7c0-1.7.5-2.9 3-2.9h3.1v-5.3c-.6 0-2.4-.2-4.6-.2-4.5 0-7.5 2.7-7.5 7.8v4.3h-5.1V30h5.1v15.1H10.7c-1.2 0-2.2-.9-2.2-2.1V8.3c0-1.2 1-2.2 2.2-2.2h34.7c1.2 0 2.1 1 2.1 2.2V43" class="icon icon-fb"></path></svg></a>
+			    </li>
+			    <li>
+ 			       <a href="https://www.instagram.com/objectifseo" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 54 54"><title>instagram</title><path d="M27.2 6.1c-5.1 0-5.8 0-7.8.1s-3.4.4-4.6.9c-1.2.5-2.3 1.1-3.3 2.2-1.1 1-1.7 2.1-2.2 3.3-.5 1.2-.8 2.6-.9 4.6-.1 2-.1 2.7-.1 7.8s0 5.8.1 7.8.4 3.4.9 4.6c.5 1.2 1.1 2.3 2.2 3.3 1 1.1 2.1 1.7 3.3 2.2 1.2.5 2.6.8 4.6.9 2 .1 2.7.1 7.8.1s5.8 0 7.8-.1 3.4-.4 4.6-.9c1.2-.5 2.3-1.1 3.3-2.2 1.1-1 1.7-2.1 2.2-3.3.5-1.2.8-2.6.9-4.6.1-2 .1-2.7.1-7.8s0-5.8-.1-7.8-.4-3.4-.9-4.6c-.5-1.2-1.1-2.3-2.2-3.3-1-1.1-2.1-1.7-3.3-2.2-1.2-.5-2.6-.8-4.6-.9-2-.1-2.7-.1-7.8-.1zm0 3.4c5 0 5.6 0 7.6.1 1.9.1 2.9.4 3.5.7.9.3 1.6.7 2.2 1.4.7.6 1.1 1.3 1.4 2.2.3.6.6 1.6.7 3.5.1 2 .1 2.6.1 7.6s0 5.6-.1 7.6c-.1 1.9-.4 2.9-.7 3.5-.3.9-.7 1.6-1.4 2.2-.7.7-1.3 1.1-2.2 1.4-.6.3-1.7.6-3.5.7-2 .1-2.6.1-7.6.1-5.1 0-5.7 0-7.7-.1-1.8-.1-2.9-.4-3.5-.7-.9-.3-1.5-.7-2.2-1.4-.7-.7-1.1-1.3-1.4-2.2-.3-.6-.6-1.7-.7-3.5 0-2-.1-2.6-.1-7.6 0-5.1.1-5.7.1-7.7.1-1.8.4-2.8.7-3.5.3-.9.7-1.5 1.4-2.2.7-.6 1.3-1.1 2.2-1.4.6-.3 1.6-.6 3.5-.7h7.7zm0 5.8c-5.4 0-9.7 4.3-9.7 9.7 0 5.4 4.3 9.7 9.7 9.7 5.4 0 9.7-4.3 9.7-9.7 0-5.4-4.3-9.7-9.7-9.7zm0 16c-3.5 0-6.3-2.8-6.3-6.3s2.8-6.3 6.3-6.3 6.3 2.8 6.3 6.3-2.8 6.3-6.3 6.3zm12.4-16.4c0 1.3-1.1 2.3-2.3 2.3-1.3 0-2.3-1-2.3-2.3 0-1.2 1-2.3 2.3-2.3 1.2 0 2.3 1.1 2.3 2.3z" class="icon icon-instagram"></path></svg></a>
+ 			   </li>
+			    <li>
+			        <a href="https://www.pinterest.fr/objectifSEO" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="28.5" viewBox="0 0 43 51"><title>pinterest</title><path d="M8.134 18.748c0-1.6.2-3 .8-4.4.5-1.4 1.2-2.6 2.2-3.6.9-1 2-1.9 3.2-2.6 1.2-.8 2.5-1.3 3.9-1.7 1.5-.4 2.9-.5 4.4-.5 2.2 0 4.3.4 6.2 1.4 1.9.9 3.5 2.3 4.7 4.1 1.2 1.9 1.8 3.9 1.8 6.2 0 1.4-.1 2.7-.4 4-.2 1.3-.7 2.6-1.2 3.8-.6 1.2-1.3 2.3-2.2 3.2-.8.9-1.8 1.7-3.1 2.2-1.2.6-2.5.9-4 .9-1 0-1.9-.3-2.9-.7-.9-.5-1.6-1.1-2-1.9-.1.5-.3 1.4-.6 2.4-.3 1.1-.4 1.7-.5 2-.1.3-.2.9-.4 1.6-.3.7-.4 1.2-.6 1.5-.1.3-.4.7-.7 1.3-.3.6-.6 1.2-1 1.7-.3.5-.7 1.1-1.3 1.8l-.3.1-.2-.2c-.2-2.2-.3-3.6-.3-4 0-1.3.2-2.8.5-4.4.3-1.7.8-3.7 1.4-6.2.6-2.5 1-3.9 1.1-4.4-.5-.9-.7-2.1-.7-3.6 0-1.2.4-2.3 1.1-3.3.8-1.1 1.7-1.6 2.8-1.6.9 0 1.6.3 2.1.9.4.6.7 1.3.7 2.2 0 .9-.3 2.3-1 4.1-.6 1.8-.9 3.1-.9 4 0 .9.3 1.6 1 2.2.6.6 1.4.9 2.3.9.8 0 1.5-.2 2.2-.5.6-.4 1.2-.9 1.6-1.5.5-.6.9-1.3 1.2-2 .4-.8.6-1.5.8-2.4.2-.8.4-1.6.5-2.4.1-.7.1-1.4.1-2.1 0-2.5-.8-4.4-2.3-5.8-1.6-1.4-3.6-2.1-6.1-2.1-2.8 0-5.2 1-7.1 2.8-1.9 1.9-2.9 4.2-2.9 7.1 0 .6.1 1.2.3 1.8.2.6.4 1.1.6 1.4.2.3.4.7.5 1 .2.3.3.5.3.6 0 .4-.1.9-.3 1.6-.2.6-.5 1-.8 1 0 0-.1-.1-.4-.1-.7-.2-1.3-.6-1.9-1.2-.5-.6-1-1.3-1.3-2-.3-.8-.5-1.6-.7-2.4-.2-.7-.2-1.5-.2-2.2z" class="icon icon-pinterest"></path></svg></a>
+ 			   </li>
+			</ul>
+		</div>
+	</footer>
+</body>
+</html>

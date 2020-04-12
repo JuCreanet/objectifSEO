@@ -1,0 +1,26 @@
+/* couleur pour la demo */
+strong, em, h1, h2, h3, nav a, aside a {
+  background-color: #FA5858;
+}
+section, #chapo {
+  background-color: #FA8258;
+
+}
+article {
+  background-color: #FAAC58;
+}
+main {
+  background-color: #F4FA58;
+}
+aside {
+  background-color: #ACFA58;
+}
+nav {
+  background-color: #58D3F7;
+}
+header {
+  background-color: #5882FA;
+}
+footer {
+  background-color: #8258FA;
+}
