@@ -6,5 +6,10 @@ Divers outils à utiliser pour son site web :
 -Mu-plugins Wordpress :
 
   -ajout de code google analytics
+
+  -amélioration sécurité et performance
+
+-Addon :
+script à ajouter au wp-config ou au htaccess
   
 
