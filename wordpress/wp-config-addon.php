@@ -11,10 +11,15 @@ define ('FORCE_SSL_ADMIN', true);
 //Ne pas afficher les rapports d’erreurs mais les mettre dans un log
 @ini_set('log_errors','On'); 
 @ini_set('display_errors','Off'); 
-@ini_set('error_log','/home/path/domain/logs/php_error.log');
+@ini_set('error_log','/home/path/domain/logs/php_error.log'); 
+define('WP_DEBUG', false); 
+define('WP_DISABLE_FATAL_ERROR_HANDLER', false ); 
+define('WP_DEBUG_LOG', false); 
+define('WP_DEBUG_DISPLAY', false);
+
 
 //Limite les révisions
-define(‘WP_POST_REVISIONS’,5);// ou false 
+define(‘WP_POST_REVISIONS’,3);// ou false 
 
 //délai de 10mn entre les révisions
 define('AUTOSAVE_INTERVAL', '600');

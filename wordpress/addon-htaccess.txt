@@ -1,0 +1,150 @@
+#
+# A ajouter au htaccess à la racine (en plus de la mise en cache et de la compression vu en SEO)
+#
+
+#protection wp-config, htpasswd et htaccess
+
+<files wp-config.php>
+order allow,deny
+deny from all
+</files> 
+<files ~ "^.*\.([Hh][Tt][AaPp])">
+order allow,deny 
+deny from all
+</files>
+
+# Désactiver l'affichage du contenu des répertoires
+
+Options All -Indexes
+
+# Masquer les informations du serveur
+
+ServerSignature Off
+
+# Activation du suivi des liens symboliques
+
+Options +FollowSymLinks
+
+# Choix du fuseau horaire
+
+SetEnv TZ Europe/Paris
+
+# Encodage par défaut des fichiers textes et HTML
+
+AddDefaultCharset UTF-8
+
+# Éviter le spam de commentaires !remplacer monsite.com par sa propre URL!
+
+<IfModule mod_rewrite.c>
+RewriteCond %{REQUEST_METHOD} POST
+RewriteCond %{REQUEST_URI} .wp-comments-post\.php*
+RewriteCond %{HTTP_REFERER} !.monsite.com.* [OR]
+RewriteCond %{HTTP_USER_AGENT} ^$
+RewriteRule (.*) ^http://%{REMOTE_ADDR}/$ [R=301,L]
+</IfModule>
+
+# Éviter que l'on découvre l'identifiant d'un auteur
+
+<IfModule mod_rewrite.c>
+RewriteCond %{QUERY_STRING} ^author=([0-9]*)
+RewriteRule .* - [F]
+</IfModule>
+
+# Désactiver le hotlinking de vos images
+
+RewriteEngine On
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?monsite.com [NC]
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?google.com [NC]
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?bing.com [NC]
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?yahoo.com [NC]
+RewriteRule \.(jpg|jpeg|png|gif|webp)$ http://fakeimg.pl/400x200/?text=Pas_touche_aux_images [NC,R,L]
+
+# Forcer le téléchargement pour ces types de fichiers
+
+AddType application/octet-stream .doc .docx .xls .xlsx .csv .pdf
+
+# Bloquer l'utilisation de certains scripts
+
+RewriteEngine On
+RewriteBase /
+RewriteRule ^wp-admin/includes/ - [F,L]
+RewriteRule !^wp-includes/ - [S=3]
+RewriteRule ^wp-includes/[^/]+\.php$ - [F,L]
+RewriteRule ^wp-includes/js/tinymce/langs/.+\.php - [F,L]
+RewriteRule ^wp-includes/theme-compat/ - [F,L]
+
+# Protection contre les injections de fichiers
+
+RewriteCond %{REQUEST_METHOD} GET
+RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=http:// [OR]
+RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=(\.\.//?)+ [OR]
+RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=/([a-z0-9_.]//?)+ [NC]
+RewriteRule .* - [F]
+
+# Protections diverses (XSS, clickjacking et MIME-Type sniffing)
+
+<ifModule mod_headers.c>
+Header set X-XSS-Protection "1; mode=block"
+Header always append X-Frame-Options SAMEORIGIN
+Header set X-Content-Type-Options: "nosniff”
+</ifModule>
+
+#
+# A ajouter au htaccess du dossier wp-admin
+#
+
+# Seconde authentification pour l'administration (nécessite création d'un fichier .htpasswd)
+# info.php : <?php echo "Chemin du .htaccess : " . realpath('.htaccess'); ?>
+
+AuthName "Connexion à l'administration"
+AuthType Basic
+AuthUserFile "/chemin/complet/vers/le/fichier/.htpasswd"
+Require valid-user
+
+# Autoriser Ajax en front
+
+<Files admin-ajax.php>
+Order allow,deny
+Allow from all
+Satisfy any 
+</Files>
+
+#
+# A ajouter au htaccess du dossier wp-includes
+#
+
+# Bloque les accès directs aux fichiers PHP
+<Files wp-tinymce.php>
+allow from all
+</Files>
+<FilesMatch "\.(?i:php)$">
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+</FilesMatch>
+<Files wp-tinymce.php>
+  Allow from all
+</Files>
+<Files ms-files.php>
+  Allow from all
+</Files>
+
+#
+# A ajouter au htaccess du dossier wp-content
+#
+
+# Bloque les accès directs aux fichiers PHP
+<FilesMatch "\.(?i:php)$">
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+</FilesMatch>
